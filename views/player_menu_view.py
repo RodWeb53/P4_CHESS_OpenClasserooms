@@ -1,8 +1,8 @@
-"""Module views du menu d'accueil"""
+"""Module views du menu joueur"""
 from utils.clean_screen import clear
 
-class HomeMenuView:
-    """Home menu views"""
+class PlayerMenuView:
+    """Player menu views"""
     def __init__(self, menu):
         self.menu = menu
 
@@ -10,7 +10,7 @@ class HomeMenuView:
     def _display_menu(self):
         clear()
         print("")
-        print("♔  Menu principal du tournoi d'échec ♔ ")
+        print("♔ 🏁    Menu gestion des joueurs   🏁 ♔")
         print("")
         print("---------------------------------------")
         for key, entry in self.menu.items():
@@ -31,4 +31,3 @@ class HomeMenuView:
             if choice in self.menu:
                 # Retourner le choix de l'utilisateur
                 return self.menu[choice]
-    

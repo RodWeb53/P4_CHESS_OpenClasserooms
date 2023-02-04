@@ -1,17 +1,21 @@
-from models.menus import Menu
+"""Module controller du menu d'accueil"""
+from utils.menus import Menu
 from views.home_menu_view import HomeMenuView
+from views.player_menu_view import PlayerMenuView
 from .menu_player_controller import PlayerMenuController
+from .add_player_controller import PlayerController
 from .menu_tournament_controller import TournamentMenuController
 from .end_screen_controller import EndScreenController
 
+
 class HomeMenuController:
-    
+    """Home Menu controller"""
     def __init__(self):
         self.menu = Menu()
         self.view = HomeMenuView(self.menu)
 
     def __call__(self):
-        # 1. Construire le menu (models/menus.py)
+        # 1. Construire le menu (utils/menus.py)
         self.menu.add("auto", "Menu joueur", PlayerMenuController())
         self.menu.add("auto", "Menu tournoi", TournamentMenuController())
         self.menu.add("q", "Quitter l'application", EndScreenController())

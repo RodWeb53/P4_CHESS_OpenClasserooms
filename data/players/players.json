@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "last_name": "clemenceau",
+        "first_name": "rodolphe",
+        "birth_date": "28-04-1971",
+        "points": 0
+    },
+    {
+        "id": 2,
+        "last_name": "clemenceau",
+        "first_name": "gabin",
+        "birth_date": "03-04-2006",
+        "points": 0
+    }
+]
