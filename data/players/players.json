@@ -12,5 +12,19 @@
         "first_name": "gabin",
         "birth_date": "03-04-2006",
         "points": 0
+    },
+    {
+        "id": 3,
+        "last_name": "clemenceau",
+        "first_name": "virginie",
+        "birth_date": "04-06-1975",
+        "points": 0
+    },
+    {
+        "id": 4,
+        "last_name": "sffdsdf",
+        "first_name": "sdfsdf",
+        "birth_date": "01-01-2021",
+        "points": 0
     }
 ]

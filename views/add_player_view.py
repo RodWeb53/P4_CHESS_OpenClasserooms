@@ -1,5 +1,6 @@
 """Module views ajouter un nouveau joueur a la BD Json"""
 from utils.player import UtilsPlayer
+from utils.clean_screen import clear
 
 
 class AddPlayerView:
@@ -34,8 +35,26 @@ class AddPlayerView:
             return -1
 
 
+    def choice_player_next(self):
+        """Méthode pour demandé si on crée un nouveau joueur"""
+        clear()
+        print("Votre joueur à été créer avec succes dans la base de donnée")
 
+        choice_next = self.utils_player.display_menu_user_choice_next()
 
-    def save_new_player(self, user_create):
-        """Enregistrer un nouveau joueur"""
-        self.add_player.new_player_save(user_create)
+        if choice_next == "o":
+            AddPlayerView.new_player(self)
+        elif  choice_next == "n":
+            return -1
+
+    def choice_player_new(self):
+        """Méthode pour demandé si on crée un nouveau joueur"""
+        clear()
+        print("Votre joueur n'a pas été créé !!")
+
+        choice_new = self.utils_player.display_menu_user_choice_next()
+
+        if choice_new == "o":
+            AddPlayerView.new_player(self)
+        elif  choice_new == "n":
+            return -1

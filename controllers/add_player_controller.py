@@ -2,6 +2,8 @@
 from views.add_player_view import AddPlayerView
 from models.entities.player_entity import Player
 from models.manager.player_manager import PlayerManager
+from controllers import menu_home_controller
+
 
 
 class PlayerController:
@@ -10,23 +12,37 @@ class PlayerController:
         self.player = Player
         self.player_manager = PlayerManager
         self.view = AddPlayerView()
+        self.handler = ""
+
 
     def __call__(self):
 
         # Menu de création d'un joueur
         user_create = self.view.new_player()
+        #Si l'utilisateur ne veut pas créer le joueur
         if user_create == -1:
-            print("blocage")
-            #reste a faire le choix non a la sauvegarde du joueur
-            #   faire un menu pour retour à l'accueil
+            choice_new = self.view.choice_player_new()
+            # demande s'il veut créer un nouveau joueur
+            if choice_new == -1:
+                # Si non alors menu d'accueil
+                self.menu_back()
+               
+        else:
+            #Si l'utilisateur crée le joueur
+            user = self.player(**user_create)
+            # Création de l'objet utilisateur
+            self.player_manager.save_player(self, user)
+            # Sauvegarde du joueur dans la BD Json
+            choice_next = self.view.choice_player_next()
+            # Demande si l'utilisateur veut créer un nouveau joueur
 
-        user = self.player(**user_create)
+            if choice_next == -1:
+                # Si non alors menu d'accueil
+                self.menu_back()
 
-        self.player_manager.save_player(self, user)
-
-    # reste a faire le choix non a la sauvegarde du joueur
-    #   faire un menu pour retour à l'accueil
-    # Si le choix est oui apres l'enregistrement du joueur
-    #   renvoie sur le module de création
-
-        return
+        return self.handler
+    
+    def menu_back(self):
+        """Méthodes pour aller au menu d'accueil"""
+        self.handler = menu_home_controller.HomeMenuController
+        return self.handler

@@ -60,9 +60,26 @@ class UtilsPlayer:
             print("")
             print("   o / n")
             print("")
-            user_choice_save = input("Votre confirmation >>")
+            user_choice_save = input("Votre confirmation >>  ")
             if user_choice_save == "o" or user_choice_save == "n":
                 verify = False
         
         return user_choice_save
 
+
+    def display_menu_user_choice_next():
+        """Demande si l'utilisateur veux créer un nouveau joueur"""
+        verify = True
+        while verify:
+            print("")
+            print("Voulez-vous créer un nouveau joueur")
+            print("")
+            print("   o  /  n")
+            print("")
+            choice_new_player = input("Votre saisie >>  ")
+            print("")
+
+            if choice_new_player == "o" or choice_new_player == "n":
+                verify = False
+        
+        return choice_new_player

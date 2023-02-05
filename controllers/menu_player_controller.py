@@ -5,6 +5,7 @@ from .add_player_controller import PlayerController
 from .end_screen_controller import EndScreenController
 
 
+
 class PlayerMenuController:
     """Home menu controller"""
     def __init__(self):
@@ -14,9 +15,9 @@ class PlayerMenuController:
     def __call__(self):
         # 1. Construire le menu (utils/menus.py)
         self.menu.add("auto", "Ajouter un joueur", PlayerController())
-        # self.menu.add("auto", "Menu principal", HomeMenuController())
+        # self.menu.add("auto", "Menu principal", PlayerMenuController())
         # Ajouter les autres lignes d'option du menus
-        self.menu.add("auto", "Menu principal", EndScreenController())
+        self.menu.add("auto", "Sortie du jeu", EndScreenController())
 
         # 2 Demander à la vue d'afficher le menu et de collecter la réponse de l'utilisateur
         user_choice = self.view.get_user_choice()

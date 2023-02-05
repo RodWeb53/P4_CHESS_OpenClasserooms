@@ -1,9 +1,9 @@
 """Module controller du menu d'accueil"""
 from utils.menus import Menu
 from views.home_menu_view import HomeMenuView
-from views.player_menu_view import PlayerMenuView
+# from views.player_menu_view import PlayerMenuView
 from .menu_player_controller import PlayerMenuController
-from .add_player_controller import PlayerController
+# from .add_player_controller import PlayerController
 from .menu_tournament_controller import TournamentMenuController
 from .end_screen_controller import EndScreenController
 
