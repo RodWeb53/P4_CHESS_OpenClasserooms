@@ -1,4 +1,4 @@
-
+"""Modele de données d'un joueur"""
 
 class Player:
 

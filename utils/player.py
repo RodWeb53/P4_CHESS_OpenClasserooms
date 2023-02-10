@@ -8,7 +8,7 @@ class UtilsPlayer:
         pass
 
     def display_menu_last_name():
-        """Menu pour demande le nom et le controle"""
+        """Menu pour demander le nom et le controle"""
         clear()
         print("")
         print("Entrez le Nom du nouveau joueur :")
@@ -35,7 +35,7 @@ class UtilsPlayer:
     
 
     def display_menu_birth_days():
-        """Vérifiaction de la date de naissance et le controle"""
+        """Vérification de la date de naissance et le controle"""
         date_format = '%d-%m-%Y'
         print("")
         print("Entrez la date de naissance au format jj-mm-aaaa :")

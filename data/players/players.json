@@ -26,5 +26,12 @@
         "first_name": "sdfsdf",
         "birth_date": "01-01-2021",
         "points": 0
+    },
+    {
+        "id": 5,
+        "last_name": "test",
+        "first_name": "paris",
+        "birth_date": "01-01-2000",
+        "points": 0
     }
 ]

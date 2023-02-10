@@ -1,4 +1,4 @@
-"""Module manager des modèles pour la gestion de lBD des joueurs"""
+"""Module manager des modèles pour la gestion de la BD des joueurs"""
 
 import json
 import os
