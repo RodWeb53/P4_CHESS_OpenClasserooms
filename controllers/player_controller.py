@@ -1,5 +1,5 @@
 """Module controller du menu joueur"""
-from views.add_player_view import AddPlayerView
+from views.player_view import AddPlayerView
 from models.entities.player_entity import Player
 from models.manager.player_manager import PlayerManager
 from controllers import menu_home_controller

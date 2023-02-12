@@ -6,9 +6,115 @@
         "start_date": "01-01-2025",
         "number_of_round": "6",
         "list_of_rounds": [],
-        "current_round": "",
-        "list_of_players": [],
-        "list_of_matchs": [],
+        "current_round": 1,
+        "list_of_players": [
+            {
+                "id": 1,
+                "last_name": "clemenceau",
+                "first_name": "rodolphe",
+                "points": 0
+            },
+            {
+                "id": 3,
+                "last_name": "clemenceau",
+                "first_name": "virginie",
+                "points": 0
+            },
+            {
+                "id": 2,
+                "last_name": "clemenceau",
+                "first_name": "gabin",
+                "points": 0
+            },
+            {
+                "id": 4,
+                "last_name": "Clemenceau",
+                "first_name": "Zoe",
+                "points": 0
+            },
+            {
+                "id": 6,
+                "last_name": "Zidane",
+                "first_name": "Zinedine",
+                "points": 0
+            },
+            {
+                "id": 8,
+                "last_name": "Serdan",
+                "first_name": "Marcel",
+                "points": 0
+            },
+            {
+                "id": 5,
+                "last_name": "jackson",
+                "first_name": "mickael",
+                "points": 0
+            },
+            {
+                "id": 7,
+                "last_name": "Chirac",
+                "first_name": "Jacques",
+                "points": 0
+            }
+        ],
+        "list_of_matchs": [
+            [
+                {
+                    "id": 1,
+                    "last_name": "clemenceau",
+                    "first_name": "rodolphe",
+                    "points": 0
+                },
+                {
+                    "id": 3,
+                    "last_name": "clemenceau",
+                    "first_name": "virginie",
+                    "points": 0
+                }
+            ],
+            [
+                {
+                    "id": 2,
+                    "last_name": "clemenceau",
+                    "first_name": "gabin",
+                    "points": 0
+                },
+                {
+                    "id": 4,
+                    "last_name": "Clemenceau",
+                    "first_name": "Zoe",
+                    "points": 0
+                }
+            ],
+            [
+                {
+                    "id": 6,
+                    "last_name": "Zidane",
+                    "first_name": "Zinedine",
+                    "points": 0
+                },
+                {
+                    "id": 8,
+                    "last_name": "Serdan",
+                    "first_name": "Marcel",
+                    "points": 0
+                }
+            ],
+            [
+                {
+                    "id": 5,
+                    "last_name": "jackson",
+                    "first_name": "mickael",
+                    "points": 0
+                },
+                {
+                    "id": 7,
+                    "last_name": "Chirac",
+                    "first_name": "Jacques",
+                    "points": 0
+                }
+            ]
+        ],
         "comments": ""
     },
     {
@@ -19,7 +125,38 @@
         "number_of_round": 4,
         "list_of_rounds": [],
         "current_round": "",
-        "list_of_players": [],
+        "list_of_players": [
+            {
+                "id": 2,
+                "last_name": "clemenceau",
+                "first_name": "gabin",
+                "points": 0
+            },
+            {
+                "id": 5,
+                "last_name": "jackson",
+                "first_name": "mickael",
+                "points": 0
+            },
+            {
+                "id": 7,
+                "last_name": "Chirac",
+                "first_name": "Jacques",
+                "points": 0
+            },
+            {
+                "id": 6,
+                "last_name": "Zidane",
+                "first_name": "Zinedine",
+                "points": 0
+            },
+            {
+                "id": 3,
+                "last_name": "clemenceau",
+                "first_name": "virginie",
+                "points": 0
+            }
+        ],
         "list_of_matchs": [],
         "comments": ""
     }

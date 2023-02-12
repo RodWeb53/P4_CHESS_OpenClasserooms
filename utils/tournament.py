@@ -9,7 +9,7 @@ class UtilsTournament:
 
     def display_menu_name():
         """Menu pour demander le nom du tournoi"""
-        clear()
+        # clear()
         print("")
         print("Entrez le Nom du nouveau tournoi :")
         tournament_name = input("Votre saisie >> ")
@@ -67,7 +67,25 @@ class UtilsTournament:
             print("")
             number_of_round = input("Votre saisie >>  ")
             if number_of_round.isnumeric():
+                number_of_round = int(number_of_round)
                 return number_of_round
         else:
             number_of_round = 4
             return number_of_round
+        
+    def display_validation(self, question):
+        self.question = question
+        verify = True
+        while verify:
+            print("")
+            print(self.question)
+            print("")
+            print("   o / n")
+            print("")
+            user_choice = input("Votre choix >>  ")
+            if user_choice == "o":
+                verify = False
+                return True
+            elif  user_choice == "n":
+                verify = False
+                return False

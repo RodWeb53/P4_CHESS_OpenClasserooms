@@ -18,7 +18,18 @@ class TournamentManager:
 
         for items in list_tournament:
             if str(items.tournament_id) == str(id_tournament):
-                list_tournament = items
+                list_tournament = {
+                    "tournament_id": items.tournament_id,
+                    "tournament_name": items.tournament_name,
+                    "tournament_place": items.tournament_place,
+                    "start_date": items.start_date,
+                    "number_of_round": items.number_of_round,
+                    "list_of_rounds": items.list_of_rounds,
+                    "current_round": items.current_round,
+                    "list_of_players": items.list_of_players,
+                    "list_of_matchs": items.list_of_matchs,
+                    "comments": items.comments
+                }
 
         return list_tournament
 
@@ -59,6 +70,41 @@ class TournamentManager:
         json.dump(new_list, out_file, indent=4)
         out_file.close()
 
+    def update_tournament(self, tournament):
+        """Méthodes pour la modification des données d'un tournoi"""
+        new_tournament = {
+            "tournament_id": tournament.tournament_id,
+            "tournament_name": tournament.tournament_name,
+            "tournament_place": tournament.tournament_place,
+            "start_date": tournament.start_date,
+            "number_of_round": tournament.number_of_round,
+            "list_of_rounds": tournament.list_of_rounds,
+            "current_round": tournament.current_round,
+            "list_of_players": tournament.list_of_players,
+            "list_of_matchs": tournament.list_of_matchs,
+            "comments": tournament.comments
+        }
+        # récupération des utilisateurs du fichier Json
+        data = TournamentManager.get_all_tournament()
+        list_tournament = []
+
+        # Création d'un liste vide pour mettre les tournois connus
+        new_list = []
+
+        for item in data:
+            new_list.append(item)
+
+        for items in new_list:
+            if items["tournament_id"] == new_tournament["tournament_id"]:
+                list_tournament.append(new_tournament)
+            else:
+                list_tournament.append(items)
+
+        # Sauvegarde de la liste des tournois
+
+        out_file = open(os.path.join('data/tournaments', "tournaments.json"), "w", encoding="UTF-8")
+        json.dump(list_tournament, out_file, indent=4)
+        out_file.close()
 
 
     def get_all_tournament():

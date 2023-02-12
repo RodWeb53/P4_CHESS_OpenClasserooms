@@ -1,9 +1,9 @@
 """Module controller du menu d'accueil"""
 from utils.menus import Menu
-from views.home_menu_view import HomeMenuView
+from views.menu_home_view import HomeMenuView
 from .menu_player_controller import PlayerMenuController
 from .menu_tournament_controller import TournamentMenuController
-from .end_screen_controller import EndScreenController
+
 
 
 class HomeMenuController:
@@ -19,7 +19,7 @@ class HomeMenuController:
         #-------------------------------------------------------------------
         # Ajouter le choix des rapports
         #-------------------------------------------------------------------
-        self.menu.add("q", "Quitter l'application", EndScreenController())
+        self.menu.add("q", "Quitter l'application", PlayerMenuController())
 
         # 2 Demander à la vue d'afficher le menu et de collecter la réponse de l'utilisateur
         user_choice = self.view.get_user_choice()

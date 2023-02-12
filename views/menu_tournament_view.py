@@ -19,7 +19,7 @@ class TournamentMenuView:
         print("")
 
 
-    def get_user_choice(self):
+    def get_user_choice_tournament(self):
         """Boucle pour afficher tant que l'utilisateur n'a pas fait de bon choix"""
 
         while True:
