@@ -15,33 +15,25 @@ class PlayerController:
         self.handler = ""
 
 
-    def __call__(self):
+    def new_player(self):
+        """Ajout d'un joueur"""
 
         # Menu de création d'un joueur
         user_create = self.view.new_player()
-        #Si l'utilisateur ne veut pas créer le joueur
-        if user_create == -1:
-            choice_new = self.view.choice_player_new()
-            # demande s'il veut créer un nouveau joueur
-            if choice_new == -1:
-                # Si non alors menu d'accueil
-                self.menu_back()
-               
-        else:
-            #Si l'utilisateur crée le joueur
+        # validation de la création du joueur
+        if not user_create == -1:
             user = self.player(**user_create)
-            # Création de l'objet utilisateur
             self.player_manager.save_player(self, user)
-            # Sauvegarde du joueur dans la BD Json
-            choice_next = self.view.choice_player_next()
-            # Demande si l'utilisateur veut créer un nouveau joueur
+        # Demande si on veut créerun nouveau joueur
+        choice_new = self.view.choice_player_new()
+        # Si oui relance du new player
+        if choice_new == 1:
+            PlayerController.new_player(self)
+        # Sinon retour au menu principal
+        elif choice_new == -1:
+            self.menu_back()
 
-            if choice_next == -1:
-                # Si non alors menu d'accueil
-                self.menu_back()
 
-        return self.handler
-    
     def menu_back(self):
         """Méthodes pour aller au menu d'accueil"""
         self.handler = menu_home_controller.HomeMenuController

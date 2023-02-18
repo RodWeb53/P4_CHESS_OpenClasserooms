@@ -15,10 +15,10 @@ class AddPlayerView:
 
         while create_entry:
 
-            last_name = self.utils_player.display_menu_last_name()
-            first_name = self.utils_player.display_menu_first_name()
-            birth_date = self.utils_player.display_menu_birth_days()
-            choice_user = self.utils_player.display_menu_user_choice_save()
+            last_name = self.utils_player.display_menu_last_name(self)
+            first_name = self.utils_player.display_menu_first_name(self)
+            birth_date = self.utils_player.display_menu_birth_days(self)
+            choice_user = self.utils_player.display_menu_user_choice_save(self)
 
             create_entry = False
 
@@ -40,7 +40,7 @@ class AddPlayerView:
         clear()
         print("Votre joueur à été créer avec succes dans la base de donnée")
 
-        choice_next = self.utils_player.display_menu_user_choice_next()
+        choice_next = self.utils_player.display_menu_user_choice_new(self)
 
         if choice_next == "o":
             AddPlayerView.new_player(self)
@@ -52,9 +52,9 @@ class AddPlayerView:
         clear()
         print("Votre joueur n'a pas été créé !!")
 
-        choice_new = self.utils_player.display_menu_user_choice_next()
+        choice_new = self.utils_player.display_menu_user_choice_new(self)
 
         if choice_new == "o":
-            AddPlayerView.new_player(self)
+            return 1
         elif  choice_new == "n":
             return -1

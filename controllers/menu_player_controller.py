@@ -1,8 +1,8 @@
 """Module controller du menu d'accueil"""
 from utils.menus import Menu
+from controllers import menu_home_controller
 from views.menu_player_view import PlayerMenuView
 from .player_controller import PlayerController
-from controllers import menu_home_controller
 
 
 
@@ -14,7 +14,7 @@ class PlayerMenuController:
 
     def __call__(self):
         # 1. Construire le menu (utils/menus.py)
-        self.menu.add("auto", "Ajouter un joueur", PlayerController())
+        self.menu.add("auto", "Ajouter un joueur", PlayerController().new_player)
         # self.menu.add("auto", "Menu principal", PlayerMenuController())
         # Ajouter les autres lignes d'option du menus
         self.menu.add("auto", "Menu principal", menu_home_controller.HomeMenuController())

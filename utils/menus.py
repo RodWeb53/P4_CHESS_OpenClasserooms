@@ -38,4 +38,3 @@ class Menu:
     # Simulation d'un dictionnaire pour le controle du choix dans views
     def __getitem__(self, choice):
         return self._entries[choice]
-    
