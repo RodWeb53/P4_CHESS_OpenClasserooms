@@ -1,3 +1,4 @@
+"""Module utilitaire pour le tournoi"""
 import datetime
 from utils.clean_screen import clear
 
@@ -54,13 +55,11 @@ class UtilsTournament:
         print("")
         print("Le nombre de tour dans le tournoi est de 4 par défaut")
         print("Est ce que vous voulez changer le nombre de tours ?")
-        print("   o  /  n")
-        print("")
+        print("   o  /  n \n\n")
         choice = input("Votre saisie >>  ")
         print("")
         if choice == "o":
-            print("Combien de tours souhaitez-vous faire ?")
-            print("")
+            print("Combien de tours souhaitez-vous faire ? \n\n")
             number_of_round = input("Votre saisie >>  ")
             if number_of_round.isnumeric():
                 number_of_round = int(number_of_round)
@@ -69,15 +68,14 @@ class UtilsTournament:
             number_of_round = 4
             return number_of_round
 
+
     def display_validation(self, question):
         """Methode pour l'affichage d'une question"""
         verify = True
         while verify:
             print("")
-            print(question)
-            print("")
-            print("   o / n")
-            print("")
+            print(question + "\n\n")
+            print("   o / n \n\n")
             user_choice = input("Votre choix >>  ")
             if user_choice == "o":
                 verify = False
@@ -86,12 +84,12 @@ class UtilsTournament:
                 verify = False
                 return False
 
+
     def display_match(self, list_of_matchs):
         """Affichage des matchs dans un round"""
         match = 1
         espace = ""
-        print(espace.ljust(35, "-"))
-        print("")
+        print(espace.ljust(35, "-") + "\n\n")
         for item in list_of_matchs:
             print("Match : " + str(match))
             print(espace.ljust(10, "-"))
@@ -100,18 +98,16 @@ class UtilsTournament:
             print(espace.ljust(20) + "VS")
             print(espace.ljust(8) +
                   item[1]["last_name"].ljust(15) + item[1]["first_name"])
-            print(espace.ljust(35, "-"))
-            print("")
+            print(espace.ljust(35, "-") + "\n\n")
             match += 1
 
     def display_result_match(self, list_of_matchs):
         """Affichage des matchs dans un round"""
         match = 1
         espace = ""
-        print(espace.ljust(35, "-"))
-        print("")
+        print(espace.ljust(35, "-") + "\n\n")
         for item in list_of_matchs:
-            # clear()
+            clear()
             print("Match : " + str(match))
             print(espace.ljust(10, "-"))
             print(espace.ljust(8) +
@@ -119,46 +115,30 @@ class UtilsTournament:
             print(espace.ljust(20) + "VS")
             print(espace.ljust(8) +
                   item[1]["last_name"].ljust(15) + item[1]["first_name"])
-            print(espace.ljust(35, "-"))
-            print("")
-            print("Qui est le vainqueur du match ?")
-            print("")
+            print(espace.ljust(35, "-") + "\n\n")
+            print("Qui est le vainqueur du match ? \n\n")
             print(" 1 - " + item[0]["last_name"].ljust(15) +
                   item[0]["first_name"].ljust(15) + "est le vainqueur")
             print(" 2 - " + item[1]["last_name"].ljust(15) +
                   item[1]["first_name"].ljust(15) + "est le vainqueur")
-            print(" 3 - Match nul pas de vainqueur")
-            print("")
+            print(" 3 - Match nul pas de vainqueur \n\n")
 
-            # while entry:
             resultat = input("Votre réponse >> ")
-            print("La réponse est :")
-            # print(resultat)
 
             if resultat.isnumeric() and int(resultat) <= 3:
 
                 if int(resultat) == 1:
-                    print("dans le premier if des points")
                     item[0]["points"] = 1
                     item[1]["points"] = 0
-                    # entry = False
 
                 elif int(resultat) == 2:
-                    print("dans le deuxieme if des points")
                     item[0]["points"] = 0
                     item[1]["points"] = 1
-                    # entry = False
 
                 elif int(resultat) == 3:
-                    print("dans le troisieme if des points")
                     item[0]["points"] = 0.5
                     item[1]["points"] = 0.5
-                    # entry = False
             else:
                 resultat = input("Votre réponse >> ")
-                print("La réponse est :")
-            # entry = False
 
             match += 1
-            # print("List apres affectation des points")
-            # print(list_of_matchs)

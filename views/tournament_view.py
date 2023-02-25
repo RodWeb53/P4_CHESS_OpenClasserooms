@@ -19,7 +19,8 @@ class NewTournamentView:
             tournament_name = self.utils_tournament.display_menu_name(self)
             tournament_place = self.utils_tournament.display_menu_place(self)
             start_date = self.utils_tournament.display_menu_days(self)
-            number_of_round = self.utils_tournament.display_menu_number_of_rounds(self)
+            number_of_round = self.utils_tournament.display_menu_number_of_rounds(
+                self)
 
             create_entry = False
 
@@ -41,8 +42,7 @@ class NewTournamentView:
         titre_tiret = "|"
         titre = ""
         clear()
-        print("Sélectionner un tournoi dans la liste suivante")
-        print("")
+        print("Sélectionner un tournoi dans la liste suivante \n\n")
         print(titre.ljust(69, "-"))
         print(titre_num.ljust(8) + titre_nom.ljust(20) +
               titre_emplacement.ljust(40) + titre_tiret)
@@ -56,10 +56,8 @@ class NewTournamentView:
                   titre_tiret.ljust(3) + str(item.tournament_place).ljust(37) +
                   titre_tiret
                   )
-        print(titre.ljust(69, "-"))
-        print("")
-        print("Entrez le N° de tournoi souhaité")
-        print("")
+        print(titre.ljust(69, "-") + "\n\n")
+        print("Entrez le N° de tournoi souhaité \n\n")
         choice = input("Votre choix >>  ")
         entry = True
         while entry:
@@ -70,7 +68,6 @@ class NewTournamentView:
                 entry = False
 
         return choice
-
 
     def add_player_tournament(self, data_players, list_players):
         """Vue pour l'ajout des joueurs pour un tournoi"""
@@ -83,8 +80,7 @@ class NewTournamentView:
         number = 0
         list_base = []
 
-        print("Sélectionner un joueur dans la liste suivante")
-        print("")
+        print("Sélectionner un joueur dans la liste suivante \n\n")
         print(titre.ljust(69, "-"))
         print(titre_num.ljust(8) + titre_nom.ljust(20) +
               titre_prenom.ljust(40) + titre_tiret)
@@ -99,10 +95,8 @@ class NewTournamentView:
                   titre_tiret.ljust(3) + str(item.first_name).ljust(37) +
                   titre_tiret
                   )
-        print(titre.ljust(69, "-"))
-        print("")
-        print("Entrez le N° du joueur souhaité")
-        print("")
+        print(titre.ljust(69, "-") + "\n\n")
+        print("Entrez le N° du joueur souhaité \n\n")
         choice = input("Votre choix >>  ")
         entry = True
         while entry:
@@ -116,10 +110,8 @@ class NewTournamentView:
                 verify = True
                 while verify:
                     print("")
-                    print("Souhaitez-vous ajouter un autre joueur")
-                    print("")
-                    print("   o / n")
-                    print("")
+                    print("Souhaitez-vous ajouter un autre joueur \n\n")
+                    print("   o / n \n\n")
 
                     user_choice = input("Votre choix >>  ")
                     if user_choice == "o":
@@ -145,6 +137,16 @@ class NewTournamentView:
 
         return validation
 
+    def information(self, information):
+        """Méthode pour afficher une information"""
+        clear()
+        espace = ""
+        print(espace.ljust(60, "-") + "\n\n")
+        print(information + "\n\n")
+        print(espace.ljust(60, "-"))
+        time.sleep(4.0)
+
+
     def start_gamme_tournament(self, list_player_gamme):
         """Vue pour le lancement d'une partie"""
         entry = True
@@ -169,7 +171,6 @@ class NewTournamentView:
 
         return list_of_matchs
 
-
     def end_round_tournament(self, active_tournament):
         """vue pour la fin d'un round"""
         list_of_matchs = active_tournament[0].list_of_matchs
@@ -178,11 +179,53 @@ class NewTournamentView:
 
         return active_tournament[0].list_of_matchs
 
+    def start_round_tournament(self, active_tournament):
+        """Création d'un round"""
+        list_of_matchs = []
+
+        single_or_multiple_turn = (len(
+            active_tournament[0].list_of_players) - active_tournament[0].current_round)
+        list_players = active_tournament[0].list_of_players
+        list_players = sorted(
+            list_players, key=lambda player: player["points"], reverse=True)
+        entry = True
+        # Si le nombre de joueurs par rapport permet de faire des tours unique
+        if single_or_multiple_turn >=1:
+            while entry:
+                number_player = len(list_players)
+                if number_player >= 2:
+                    for i in range(1, number_player):
+                        if not list_players[i]["player_id"] in list_players[0]["players_played"]:
+                            list_of_matchs.append(
+                                (list_players[0], list_players[i]))
+                            del list_players[i], list_players[0]
+                            break
+                else:
+                    entry = False
+        else:
+            # Si le nombre de tours est supérieur ou égal au nombres de joueurs
+            while entry:
+                number_player = len(list_players)
+                if number_player >= 2:
+                    list_of_matchs.append((list_players[0], list_players[1]))
+                    del list_players[1], list_players[0]
+                else:
+                    entry = False
+
+        clear()
+        print(f'La liste des matchs pour le round  {active_tournament[0].current_round}')
+
+        UtilsTournament.display_match(self, list_of_matchs)
+
+        print("Continuer, appuyer sur 'Entrée'")
+        input("")
+
+        return list_of_matchs
+
 
     def missing_a_player(self):
         """information que le nombre de joueurs n'est pas pair"""
         print("Le nombre de joueur n'est pas pair")
-
 
     def tournament_current(self):
         """Information si le tournoi est commencé"""

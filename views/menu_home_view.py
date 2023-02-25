@@ -10,13 +10,11 @@ class HomeMenuView:
     def _display_menu(self):
         clear()
         print("")
-        print("♔  Menu principal du tournoi d'échec ♔ ")
-        print("")
+        print("♔  Menu principal du tournoi d'échec ♔ \n\n")
         print("---------------------------------------")
         for key, entry in self.menu.items():
             print(f"|  {key} : {entry.option}")
-            print("---------------------------------------")
-        print("")
+            print("---------------------------------------\n\n")
 
 
     def get_user_choice(self):

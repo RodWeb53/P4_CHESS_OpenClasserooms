@@ -9,12 +9,6 @@ class Tournament:
                  list_of_players=[], list_of_matchs=[], comments="",
                  tournament_id=0
                 ):
-    # def __init__(self, tournament_name, tournament_place, start_date,
-    #              end_round="", start_round="", number_of_round="",
-    #              list_of_rounds=[], current_round="",
-    #              list_of_players=[], list_of_matchs=[], comments="",
-    #              tournament_id=0
-    #             ):
         self.tournament_id = tournament_id
         self.tournament_name = tournament_name
         self.tournament_place = tournament_place

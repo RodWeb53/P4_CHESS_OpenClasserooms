@@ -22,8 +22,6 @@ class PlayerManager:
 
         # récupération des utilisateurs du fichier Json
         data = PlayerManager.get_all_players_json(self)
-        print("print du data pares le get all")
-        print(data)
         # Création d'un liste vide pour mettre les joueurs connus
         new_list = []
         last_id = 1
@@ -31,12 +29,10 @@ class PlayerManager:
         for items in data:
             new_list.append(items)
             last_id += 1
-
         # Affection du N° id au nouveau joueur
         new_player["player_id"] = last_id
         # Ajout du nouveau joueur à la liste
         new_list.append(new_player)
-
         # Sauvegarde de la liste de joueurs
         out_file = open(os.path.join('data/players', "players.json"), "w", encoding="UTF-8")
         json.dump(new_list, out_file, indent=4)
@@ -44,21 +40,17 @@ class PlayerManager:
 
 
     def get_all_players(self):
-    # def get_all_players():
         """Lecture du fichier JSON des joueurs"""
         with open(os.path.join('data/players', "players.json"), "r", encoding="UTF-8") as read_file:
             data = json.load(read_file)
-
         list_players = []
-
         for i in data:
             list_players.append(Player(**i))
-
+            
         return list_players
 
 
     def get_all_players_json(self):
-    # def get_all_players_json():
         """Lecture du fichier JSON des joueurs"""
         with open(os.path.join('data/players', "players.json"), "r", encoding="UTF-8") as read_file:
             data = json.load(read_file)

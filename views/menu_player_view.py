@@ -10,13 +10,11 @@ class PlayerMenuView:
     def _display_menu(self):
         clear()
         print("")
-        print("♔ 🏁    Menu gestion des joueurs   🏁 ♔")
-        print("")
+        print("♔ 🏁    Menu gestion des joueurs   🏁 ♔ \n\n")
         print("---------------------------------------")
         for key, entry in self.menu.items():
             print(f"|  {key} : {entry.option}")
-            print("---------------------------------------")
-        print("")
+            print("---------------------------------------\n\n")
 
 
     def get_user_choice(self):

@@ -80,71 +80,383 @@
                         ]
                     ]
                 }
+            ],
+            [
+                {
+                    "round": "Round 2",
+                    "start_round": "20/02/2023, 21:33:33",
+                    "end_round": "22/02/2023, 18:03:22",
+                    "list_of_match": [
+                        [
+                            {
+                                "player_id": 1,
+                                "last_name": "clemenceau",
+                                "first_name": "rodolphe",
+                                "points": 1,
+                                "players_played": [
+                                    3
+                                ]
+                            },
+                            {
+                                "player_id": 8,
+                                "last_name": "Serdan",
+                                "first_name": "Marcel",
+                                "points": 0,
+                                "players_played": [
+                                    2
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 6,
+                                "last_name": "Zidane",
+                                "first_name": "Zinedine",
+                                "points": 0,
+                                "players_played": [
+                                    7
+                                ]
+                            },
+                            {
+                                "player_id": 4,
+                                "last_name": "Clemenceau",
+                                "first_name": "Zoe",
+                                "points": 1,
+                                "players_played": [
+                                    5
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 5,
+                                "last_name": "jackson",
+                                "first_name": "mickael",
+                                "points": 0.5,
+                                "players_played": [
+                                    4
+                                ]
+                            },
+                            {
+                                "player_id": 2,
+                                "last_name": "clemenceau",
+                                "first_name": "gabin",
+                                "points": 0.5,
+                                "players_played": [
+                                    8
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 3,
+                                "last_name": "clemenceau",
+                                "first_name": "virginie",
+                                "points": 1,
+                                "players_played": [
+                                    1
+                                ]
+                            },
+                            {
+                                "player_id": 7,
+                                "last_name": "Chirac",
+                                "first_name": "Jacques",
+                                "points": 0,
+                                "players_played": [
+                                    6
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "round": "Round 3",
+                    "start_round": "22/02/2023, 18:13:01",
+                    "end_round": "22/02/2023, 18:13:39",
+                    "list_of_match": [
+                        [
+                            {
+                                "player_id": 1,
+                                "last_name": "clemenceau",
+                                "first_name": "rodolphe",
+                                "points": 1,
+                                "players_played": [
+                                    3,
+                                    8
+                                ]
+                            },
+                            {
+                                "player_id": 4,
+                                "last_name": "Clemenceau",
+                                "first_name": "Zoe",
+                                "points": 0,
+                                "players_played": [
+                                    5,
+                                    6
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 8,
+                                "last_name": "Serdan",
+                                "first_name": "Marcel",
+                                "points": 0,
+                                "players_played": [
+                                    2,
+                                    1
+                                ]
+                            },
+                            {
+                                "player_id": 6,
+                                "last_name": "Zidane",
+                                "first_name": "Zinedine",
+                                "points": 1,
+                                "players_played": [
+                                    7,
+                                    4
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 3,
+                                "last_name": "clemenceau",
+                                "first_name": "virginie",
+                                "points": 0.5,
+                                "players_played": [
+                                    1,
+                                    7
+                                ]
+                            },
+                            {
+                                "player_id": 5,
+                                "last_name": "jackson",
+                                "first_name": "mickael",
+                                "points": 0.5,
+                                "players_played": [
+                                    4,
+                                    2
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 2,
+                                "last_name": "clemenceau",
+                                "first_name": "gabin",
+                                "points": 1,
+                                "players_played": [
+                                    8,
+                                    5
+                                ]
+                            },
+                            {
+                                "player_id": 7,
+                                "last_name": "Chirac",
+                                "first_name": "Jacques",
+                                "points": 0,
+                                "players_played": [
+                                    6,
+                                    3
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "round": "Round 4",
+                    "start_round": "22/02/2023, 18:14:18",
+                    "end_round": "22/02/2023, 18:14:56",
+                    "list_of_match": [
+                        [
+                            {
+                                "player_id": 1,
+                                "last_name": "clemenceau",
+                                "first_name": "rodolphe",
+                                "points": 1,
+                                "players_played": [
+                                    3,
+                                    8,
+                                    4
+                                ]
+                            },
+                            {
+                                "player_id": 6,
+                                "last_name": "Zidane",
+                                "first_name": "Zinedine",
+                                "points": 0,
+                                "players_played": [
+                                    7,
+                                    4,
+                                    8
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 2,
+                                "last_name": "clemenceau",
+                                "first_name": "gabin",
+                                "points": 0,
+                                "players_played": [
+                                    8,
+                                    5,
+                                    7
+                                ]
+                            },
+                            {
+                                "player_id": 4,
+                                "last_name": "Clemenceau",
+                                "first_name": "Zoe",
+                                "points": 1,
+                                "players_played": [
+                                    5,
+                                    6,
+                                    1
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 3,
+                                "last_name": "clemenceau",
+                                "first_name": "virginie",
+                                "points": 0.5,
+                                "players_played": [
+                                    1,
+                                    7,
+                                    5
+                                ]
+                            },
+                            {
+                                "player_id": 8,
+                                "last_name": "Serdan",
+                                "first_name": "Marcel",
+                                "points": 0.5,
+                                "players_played": [
+                                    2,
+                                    1,
+                                    6
+                                ]
+                            }
+                        ],
+                        [
+                            {
+                                "player_id": 5,
+                                "last_name": "jackson",
+                                "first_name": "mickael",
+                                "points": 1,
+                                "players_played": [
+                                    4,
+                                    2,
+                                    3
+                                ]
+                            },
+                            {
+                                "player_id": 7,
+                                "last_name": "Chirac",
+                                "first_name": "Jacques",
+                                "points": 0,
+                                "players_played": [
+                                    6,
+                                    3,
+                                    2
+                                ]
+                            }
+                        ]
+                    ]
+                }
             ]
         ],
-        "current_round": 2,
+        "current_round": 4,
         "list_of_players": [
             {
                 "player_id": 1,
                 "last_name": "clemenceau",
                 "first_name": "rodolphe",
-                "points": 1,
+                "points": 4,
                 "players_played": [
-                    3
+                    3,
+                    8,
+                    4,
+                    6
                 ]
             },
             {
                 "player_id": 2,
                 "last_name": "clemenceau",
                 "first_name": "gabin",
-                "points": 0,
+                "points": 1.5,
                 "players_played": [
-                    8
+                    8,
+                    5,
+                    7,
+                    4
                 ]
             },
             {
                 "player_id": 4,
                 "last_name": "Clemenceau",
                 "first_name": "Zoe",
-                "points": 0.5,
+                "points": 2.5,
                 "players_played": [
-                    5
+                    5,
+                    6,
+                    1,
+                    2
                 ]
             },
             {
                 "player_id": 8,
                 "last_name": "Serdan",
                 "first_name": "Marcel",
-                "points": 1,
+                "points": 1.5,
                 "players_played": [
-                    2
+                    2,
+                    1,
+                    6,
+                    3
                 ]
             },
             {
                 "player_id": 6,
                 "last_name": "Zidane",
                 "first_name": "Zinedine",
-                "points": 1,
+                "points": 2,
                 "players_played": [
-                    7
+                    7,
+                    4,
+                    8,
+                    1
                 ]
             },
             {
                 "player_id": 3,
                 "last_name": "clemenceau",
                 "first_name": "virginie",
-                "points": 0,
+                "points": 2.0,
                 "players_played": [
-                    1
+                    1,
+                    7,
+                    5,
+                    8
                 ]
             },
             {
                 "player_id": 5,
                 "last_name": "jackson",
                 "first_name": "mickael",
-                "points": 0.5,
+                "points": 2.5,
                 "players_played": [
-                    4
+                    4,
+                    2,
+                    3,
+                    7
                 ]
             },
             {
@@ -153,7 +465,10 @@
                 "first_name": "Jacques",
                 "points": 0,
                 "players_played": [
-                    6
+                    6,
+                    3,
+                    2,
+                    5
                 ]
             }
         ],

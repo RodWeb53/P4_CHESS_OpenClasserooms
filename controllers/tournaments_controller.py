@@ -18,6 +18,7 @@ class NewTournamentController:
         self.player_manager = PlayerManager
         self.view = NewTournamentView()
 
+
     def new_tournament(self):
         """Création d'un nouveau tournoi"""
         # Création du tournoi avec la vue
@@ -34,6 +35,7 @@ class NewTournamentController:
 
         return
 
+
     def choice_tournaments(self):
         """Méthodes pour choisir le tournoi en cours et retourner les données"""
         # Récupération de la liste des tournois
@@ -47,6 +49,7 @@ class NewTournamentController:
             self, choice_tournament)
 
         return active_tournament
+
 
     def add_players_tournament(self):
         """Ajout de player dans le tournoi"""
@@ -89,6 +92,7 @@ class NewTournamentController:
 
         # Sauvegarde des données dans la base par le model manager
         self.tournament_manager.update_tournament(self, active_tournament)
+
 
     def start_gamme_controller(self):
         """Lancement du tournoi et du premier round"""
@@ -133,15 +137,35 @@ class NewTournamentController:
                         self.menu_back()
 
                     else:
-                        print("validation True")
                         NewTournamentController.add_players_tournament(self)
             else:
                 self.view.tournament_current()
 
         return self.menu_back()
 
+
     def start_round_controller(self):
-        """Reste à faire"""
+        """Création des des round à partir du 2° round"""
+        active_tournament = NewTournamentController.choice_tournaments(self)
+        if active_tournament[0].current_round == "":
+            # message a l'écran pour indiquer que le tournoi n'est pas lancé
+            print("1° round pas fait")
+        elif active_tournament[0].current_round > active_tournament[0].number_of_round:
+            information = "Impossible tout les tours ont été fait ! "
+            self.view.information(information)
+
+
+        else:
+            round_in_progress = self.view.start_round_tournament(active_tournament)
+            date_time = datetime.now()
+            active_tournament[0].list_of_matchs = round_in_progress
+            active_tournament[0].start_round = date_time.strftime(
+                        "%d/%m/%Y, %H:%M:%S")
+
+            # Sauvegarde des données dans la base json
+            self.tournament_manager.update_tournament(self, active_tournament)
+            #création de la liste des joueurs en ordre croissant
+
         # Génération des matchs suivant les problématiques suivantes:
         #   - 2 joueurs ne peuvent pas se rencontrer 2 fois
         #   - Faire des rencontre gagnant contre gagnant
@@ -196,11 +220,12 @@ class NewTournamentController:
         active_tournament[0].start_round = ""
         active_tournament[0].end_round = ""
         active_tournament[0].list_of_matchs = []
-        if active_tournament[0].current_round < active_tournament[0].number_of_round:
-            active_tournament[0].current_round += 1
-        else:
+        active_tournament[0].current_round += 1
+        if active_tournament[0].current_round > active_tournament[0].number_of_round:
+            information = "Fin du tournoi ! "
+            self.view.information(information)
+
             # Reste à faire si fin de match envoie des points du tournois dans la liste des joueurs
-            print("fin du tournoi")
 
         self.tournament_manager.update_tournament(self, active_tournament)
 
