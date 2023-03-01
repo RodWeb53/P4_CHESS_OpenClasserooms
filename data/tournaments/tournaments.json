@@ -4,6 +4,7 @@
         "tournament_name": "Tournoi des AS",
         "tournament_place": "Paris",
         "start_date": "01-01-2023",
+        "end_date": "01-01-2023",
         "end_round": "",
         "start_round": "",
         "number_of_round": 5,
@@ -371,14 +372,6 @@
                         ]
                     ]
                 }
-            ],
-            [
-                {
-                    "round": "Round 4",
-                    "start_round": "",
-                    "end_round": "25/02/2023, 17:25:49",
-                    "list_of_match": []
-                }
             ]
         ],
         "current_round": 5,
@@ -481,7 +474,7 @@
             }
         ],
         "list_of_matchs": [],
-        "comments": "Commentaire de la premi\u00e8re ligne\nCommentaire de la deuxi\u00e8me ligne\nCommentaire de la troisieme lignes\nvoici le nouveau commentaire\ntest\ntest2\ngdgsdfgsdg\n",
+        "comments": "Commentaire de la premi\u00e8re ligne\nCommentaire de la deuxi\u00e8me ligne\nCommentaire de la troisieme lignes\n",
         "tournament_valid": false
     }
 ]

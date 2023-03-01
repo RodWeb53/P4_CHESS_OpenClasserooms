@@ -240,6 +240,8 @@ class NewTournamentController:
             if active_tournament[0].current_round > active_tournament[0].number_of_round:
                 information = "Fin du tournoi ! "
                 self.view.information(information)
+                end_tournament = self.view.end_tournamment()
+                active_tournament[0].end_date = end_tournament
                 active_tournament[0].tournament_valid = False
                 self.tournament_manager.update_tournament(self, active_tournament)
                 #Récupération des joueurs de la base
@@ -272,11 +274,6 @@ class NewTournamentController:
         self.tournament_manager.update_tournament(self, active_tournament)
 
         return self.menu_back()
-
-
-    def end_screen_controller(self):
-        """Sortie du programme"""
-        return
 
 
     def menu_back(self):

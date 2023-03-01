@@ -3,7 +3,7 @@
 class Tournament:
     """Modèle pour la création d'un tournoi"""
 
-    def __init__(self, tournament_name, tournament_place, start_date,
+    def __init__(self, tournament_name, tournament_place, start_date, end_date="",
                  end_round="", start_round="", number_of_round="",
                  list_of_rounds=[], current_round="",
                  list_of_players=[], list_of_matchs=[], comments="",
@@ -13,6 +13,7 @@ class Tournament:
         self.tournament_name = tournament_name
         self.tournament_place = tournament_place
         self.start_date = start_date
+        self.end_date = end_date
         self.number_of_round = number_of_round
         self.list_of_rounds = list_of_rounds
         self.current_round = current_round
@@ -37,6 +38,11 @@ class Tournament:
     def set_start_date(self, start_date):
         """Methodes set pour la création de start_date"""
         self.start_date = start_date
+
+
+    def set_end_date(self, end_date):
+        """Methodes set pour la création de start_date"""
+        self.end_date = end_date
 
 
     def set_number_of_round(self, number_of_round):

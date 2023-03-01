@@ -196,7 +196,7 @@ class NewTournamentView:
                 number_player = len(list_players)
                 if number_player >= 2:
                     for i in range(1, number_player):
-                        if not list_players[i]["player_id"] in list_players[0]["players_played"]:
+                        if not list_players[i-1]["player_id"] in list_players[0]["players_played"]:
                             list_of_matchs.append(
                                 (list_players[0], list_players[i]))
                             del list_players[i], list_players[0]
@@ -248,4 +248,10 @@ class NewTournamentView:
         if not response:
             lines = ""
         return lines
-        
+
+
+    def end_tournamment(self):
+        """Saisie de la date de fin de tournoi"""
+        end_date = self.utils_tournament.display_menu_days(self)
+
+        return end_date

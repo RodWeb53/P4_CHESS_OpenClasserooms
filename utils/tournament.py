@@ -37,7 +37,7 @@ class UtilsTournament:
         """Vérification de la date de début de tournoi et le controle"""
         date_format = '%d-%m-%Y'
         print("")
-        print("Entrez la date de de début de tournoi au format jj-mm-aaaa :")
+        print("Entrez la date du jour du tournoi au format jj-mm-aaaa :")
         start_date = input("Votre saisie >> ")
         try:
             datetime.datetime.strptime(start_date, date_format)
