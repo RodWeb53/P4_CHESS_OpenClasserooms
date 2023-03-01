@@ -20,7 +20,6 @@ class Menu:
         if key == "auto":
             key = str(self._autokey)
             self._autokey += 1
-
         # ajout des entrées dans le tableau _entries
         self._entries[str(key)] = MenuEntry(option, handler)
 

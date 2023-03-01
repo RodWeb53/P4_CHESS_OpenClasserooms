@@ -1,7 +1,7 @@
 """Fonctionnalité pour le nettoyage d'écarn Mac et Windows"""
 from os import system, name
 
-# Fonction pour le néttoyage de l'écran lors du changement de menu
+# Fonction pour le nettoyage de l'écran lors du changement de menu
 def clear():
     """Méthode pour clean l'ecran"""
 

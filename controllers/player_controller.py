@@ -5,9 +5,9 @@ from models.manager.player_manager import PlayerManager
 from controllers import menu_home_controller
 
 
-
 class PlayerController:
     """Menu controller pour l'ajout d'un joueur à la BD Json"""
+
     def __init__(self):
         self.player = Player
         self.player_manager = PlayerManager
@@ -17,7 +17,6 @@ class PlayerController:
 
     def new_player(self):
         """Ajout d'un joueur"""
-
         # Menu de création d'un joueur
         user_create = self.view.new_player()
         # validation de la création du joueur

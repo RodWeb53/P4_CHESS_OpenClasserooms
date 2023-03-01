@@ -39,7 +39,8 @@ class TournamentManager:
             "current_round": tournament.current_round,
             "list_of_players": tournament.list_of_players,
             "list_of_matchs": tournament.list_of_matchs,
-            "comments": tournament.comments
+            "comments": tournament.comments,
+            "tournament_valid": tournament.tournament_valid
         }
         # récupération des utilisateurs du fichier Json
         data = TournamentManager.get_all_tournament_json(self)
@@ -77,7 +78,8 @@ class TournamentManager:
             "current_round": tournament[0].current_round,
             "list_of_players": tournament[0].list_of_players,
             "list_of_matchs": tournament[0].list_of_matchs,
-            "comments": tournament[0].comments
+            "comments": tournament[0].comments,
+            "tournament_valid": tournament[0].tournament_valid
         }
         # récupération des utilisateurs du fichier Json
         data = TournamentManager.get_all_tournament_json(self)
@@ -108,6 +110,21 @@ class TournamentManager:
         list_tournaments = []
         for i in data:
             list_tournaments.append(Tournament(**i))
+
+        return list_tournaments
+
+
+    def get_all_tournament_in_progress(self):
+        """Lecture du fichier JSON des tournois"""
+        with open(os.path.join('data/tournaments',
+                                "tournaments.json"), "r", encoding="UTF-8") as read_file:
+            data = json.load(read_file)
+        list_tournaments = []
+        for i in data:
+            print("la valeur de tournament valid")
+            print(i["tournament_valid"])
+            if i["tournament_valid"]:
+                list_tournaments.append(Tournament(**i))
 
         return list_tournaments
 

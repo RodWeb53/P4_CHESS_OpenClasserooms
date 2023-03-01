@@ -7,7 +7,7 @@ class Tournament:
                  end_round="", start_round="", number_of_round="",
                  list_of_rounds=[], current_round="",
                  list_of_players=[], list_of_matchs=[], comments="",
-                 tournament_id=0
+                 tournament_id=0, tournament_valid = True
                 ):
         self.tournament_id = tournament_id
         self.tournament_name = tournament_name
@@ -21,6 +21,7 @@ class Tournament:
         self.comments = comments
         self.start_round = start_round
         self.end_round = end_round
+        self.tournament_valid = tournament_valid
 
 
     def set_tournament_name(self, tournament_name):
@@ -80,3 +81,8 @@ class Tournament:
     def set_end_round(self, end_round):
         """Methodes set pour la création de end_round"""
         self.end_round = end_round
+
+
+    def set_tournament_valid(self, tournament_valid):
+        """Methodes set pour la création de end_round"""
+        self.tournament_valid = tournament_valid

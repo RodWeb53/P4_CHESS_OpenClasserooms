@@ -39,6 +39,25 @@ class PlayerManager:
         out_file.close()
 
 
+    def update_players(self, data):
+        """Méthodes pour update la base de joueurs"""
+        new_list = []
+        for item in data:
+            new_player = {
+            "player_id": item.player_id,
+            "last_name": item.last_name,
+            "first_name": item.first_name,
+            "birth_date": item.birth_date,
+            "points": item.points
+        }
+            new_list.append(new_player)
+
+        out_file = open(os.path.join('data/players', "players.json"), "w", encoding="UTF-8")
+        json.dump(new_list, out_file, indent=4)
+        out_file.close()
+
+
+
     def get_all_players(self):
         """Lecture du fichier JSON des joueurs"""
         with open(os.path.join('data/players', "players.json"), "r", encoding="UTF-8") as read_file:
@@ -46,7 +65,7 @@ class PlayerManager:
         list_players = []
         for i in data:
             list_players.append(Player(**i))
-            
+
         return list_players
 
 

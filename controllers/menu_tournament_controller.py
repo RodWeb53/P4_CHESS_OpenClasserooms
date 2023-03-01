@@ -12,6 +12,7 @@ class TournamentMenuController:
         self.menu = Menu()
         self.view = TournamentMenuView(self.menu)
 
+
     def __call__(self):
         self.menu.add("auto", "Créer un nouveau tournoi",
                       NewTournamentController().new_tournament)
@@ -26,10 +27,8 @@ class TournamentMenuController:
         self.menu.add("auto", "Commentaire sur le tournoi",
                       NewTournamentController().comment_controller)
         self.menu.add("auto", "Menu accueil", self.menu_back())
-
         # 2 Demander à la vue d'afficher le menu et de collecter la réponse de l'utilisateur
         user_choice_tournament = self.view.get_user_choice_tournament()
-
         # 3. Retourner le controleur associé au choix de l'utilisateur au controleur principal
         return user_choice_tournament.handler
 

@@ -35,33 +35,33 @@ class NewTournamentView:
 
     def choice_tournament(self, data_tournaments):
         """Méthodes pour choisir un tournoi"""
-        number = 0
+        number = []
         titre_num = "|  N°"
         titre_nom = "|  Nom"
         titre_emplacement = "|  Emplacement"
         titre_tiret = "|"
         titre = ""
         clear()
-        print("Sélectionner un tournoi dans la liste suivante \n\n")
+        print("Sélectionner un tournoi dans la liste suivante :\n")
         print(titre.ljust(69, "-"))
         print(titre_num.ljust(8) + titre_nom.ljust(20) +
               titre_emplacement.ljust(40) + titre_tiret)
         print(titre.ljust(69, "-"))
 
         for item in data_tournaments:
-            number += 1
+            number.append(item.tournament_id)
             print(titre.ljust(69, "-"))
             print(titre_tiret.ljust(3) + str(item.tournament_id).ljust(5) +
                   titre_tiret.ljust(3) + str(item.tournament_name).ljust(17) +
                   titre_tiret.ljust(3) + str(item.tournament_place).ljust(37) +
                   titre_tiret
                   )
-        print(titre.ljust(69, "-") + "\n\n")
-        print("Entrez le N° de tournoi souhaité \n\n")
+        print(titre.ljust(69, "-") + "\n")
+        print("Entrez le N° de tournoi souhaité :\n")
         choice = input("Votre choix >>  ")
         entry = True
         while entry:
-            if not choice.isnumeric() or int(choice) > number:
+            if not choice.isnumeric() or int(choice) not in number:
                 print("Le numéro saisie n'est pas dans la liste des choix")
                 choice = input("Votre nouveau choix >>  ")
             else:
@@ -80,7 +80,7 @@ class NewTournamentView:
         number = 0
         list_base = []
 
-        print("Sélectionner un joueur dans la liste suivante \n\n")
+        print("Sélectionner un joueur dans la liste suivante \n")
         print(titre.ljust(69, "-"))
         print(titre_num.ljust(8) + titre_nom.ljust(20) +
               titre_prenom.ljust(40) + titre_tiret)
@@ -95,8 +95,8 @@ class NewTournamentView:
                   titre_tiret.ljust(3) + str(item.first_name).ljust(37) +
                   titre_tiret
                   )
-        print(titre.ljust(69, "-") + "\n\n")
-        print("Entrez le N° du joueur souhaité \n\n")
+        print(titre.ljust(69, "-") + "\n")
+        print("Entrez le N° du joueur souhaité \n")
         choice = input("Votre choix >>  ")
         entry = True
         while entry:
@@ -110,21 +110,22 @@ class NewTournamentView:
                 verify = True
                 while verify:
                     print("")
-                    print("Souhaitez-vous ajouter un autre joueur \n\n")
-                    print("   o / n \n\n")
+                    print("Souhaitez-vous ajouter un autre joueur \n")
+                    print("   o / n \n")
 
                     user_choice = input("Votre choix >>  ")
                     if user_choice == "o":
                         data_players = list_base
                         if not data_players:
-                            print("Désolé la base de joueur est vide")
-                            verify = False
+                            information = "Désolé la base de joueur est vide"
+                            self.information(information)
                         else:
                             NewTournamentView.add_player_tournament(
                                 self, data_players, list_players)
+                        verify = False
                     elif user_choice == "n":
                         print("Sauvegarde des joueurs")
-                    verify = False
+                        verify = False
 
                 entry = False
 
@@ -141,8 +142,8 @@ class NewTournamentView:
         """Méthode pour afficher une information"""
         clear()
         espace = ""
-        print(espace.ljust(60, "-") + "\n\n")
-        print(information + "\n\n")
+        print(espace.ljust(60, "-") + "\n")
+        print(information + "\n")
         print(espace.ljust(60, "-"))
         time.sleep(4.0)
 
@@ -227,8 +228,24 @@ class NewTournamentView:
         """information que le nombre de joueurs n'est pas pair"""
         print("Le nombre de joueur n'est pas pair")
 
-    def tournament_current(self):
-        """Information si le tournoi est commencé"""
+
+    def add_comment(self):
+        """La vue pour l'ajout de commentaire"""
         clear()
-        print("Impossible le tournoi est commencé")
-        time.sleep(2.0)
+        print("Entrez votre commentaire (ligne vide pour sortir)\n")
+        lines = ""
+        entry = True
+        while entry:
+            line = input()
+            if not line== "":
+                lines += line + "\n"
+            else:
+                entry = False
+
+        question = "Confirmez vous l'eregistrement du commentaire"
+        response = self.validation_request(question)
+        #Si on ne veut pas enregistrer le commentaire on vide les lignes
+        if not response:
+            lines = ""
+        return lines
+        

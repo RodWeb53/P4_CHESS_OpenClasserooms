@@ -57,8 +57,8 @@ class UtilsPlayer:
         verify = True
         while verify:
             print("")
-            print("Confirmez la création du nouveau joueur : \n\n")
-            print("   o / n \n\n")
+            print("Confirmez la création du nouveau joueur : \n")
+            print("   o / n \n")
             user_choice_save = input("Votre confirmation >>  ")
             if user_choice_save == "o" or user_choice_save == "n":
                 verify = False
@@ -71,8 +71,8 @@ class UtilsPlayer:
         verify = True
         while verify:
             print("")
-            print("Voulez-vous créer un nouveau joueur\n\n")
-            print("   o  /  n \n\n")
+            print("Voulez-vous créer un nouveau joueur\n")
+            print("   o  /  n \n")
             choice_new_player = input("Votre saisie >>  ")
             print("")
 
