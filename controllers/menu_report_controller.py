@@ -1,4 +1,4 @@
-"""Module controller du menu tournoi"""
+"""Module controller du menu rapport"""
 from utils.menus import Menu
 from controllers import menu_home_controller
 from views.menu_report_view import ReportMenuView
@@ -6,12 +6,11 @@ from .report_controller import ReportController
 
 
 class ReportMenuController:
-    """Menu controller"""
+    """Menu controller pour les rapports"""
 
     def __init__(self):
         self.menu = Menu()
         self.view = ReportMenuView(self.menu)
-
 
     def __call__(self):
         self.menu.add("auto", "Liste des joueurs global",
@@ -33,7 +32,6 @@ class ReportMenuController:
         user_choice_tournament = self.view.get_user_choice_tournament()
         # 3. Retourner le controleur associé au choix de l'utilisateur au controleur principal
         return user_choice_tournament.handler
-
 
     def menu_back(self):
         """Méthodes pour aller au menu d'accueil"""

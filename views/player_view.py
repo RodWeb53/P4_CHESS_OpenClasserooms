@@ -12,16 +12,12 @@ class AddPlayerView:
         """Demander à l'utilisateur des infos pour la création d'un joueur"""
         new_player_add = {}
         create_entry = True
-
         while create_entry:
-
             last_name = self.utils_player.display_menu_last_name(self)
             first_name = self.utils_player.display_menu_first_name(self)
             birth_date = self.utils_player.display_menu_birth_days(self)
             choice_user = self.utils_player.display_menu_user_choice_save(self)
-
             create_entry = False
-
         # Si on veut sauvegarder le joueur
         if choice_user == "o":
             new_player_add = {
@@ -34,7 +30,6 @@ class AddPlayerView:
         elif choice_user == "n":
             return -1
 
-
     def choice_player_next(self):
         """Méthode pour demandé si on crée un nouveau joueur"""
         clear()
@@ -42,9 +37,8 @@ class AddPlayerView:
         choice_next = self.utils_player.display_menu_user_choice_new(self)
         if choice_next == "o":
             AddPlayerView.new_player(self)
-        elif  choice_next == "n":
+        elif choice_next == "n":
             return -1
-
 
     def choice_player_new(self):
         """Méthode pour demandé si on crée un nouveau joueur"""
@@ -53,5 +47,5 @@ class AddPlayerView:
         choice_new = self.utils_player.display_menu_user_choice_new(self)
         if choice_new == "o":
             return 1
-        elif  choice_new == "n":
+        elif choice_new == "n":
             return -1

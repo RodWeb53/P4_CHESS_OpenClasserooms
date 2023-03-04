@@ -4,55 +4,55 @@
         "last_name": "clemenceau",
         "first_name": "rodolphe",
         "birth_date": "28-04-1971",
-        "points": 0
+        "points": 14.5
     },
     {
         "player_id": 2,
         "last_name": "clemenceau",
         "first_name": "gabin",
         "birth_date": "03-04-2006",
-        "points": 0
+        "points": 8.0
     },
     {
         "player_id": 3,
         "last_name": "clemenceau",
         "first_name": "virginie",
         "birth_date": "04-06-1975",
-        "points": 0
+        "points": 12.5
     },
     {
         "player_id": 4,
         "last_name": "Clemenceau",
         "first_name": "Zoe",
         "birth_date": "16-04-2002",
-        "points": 0
+        "points": 9.0
     },
     {
         "player_id": 5,
         "last_name": "jackson",
         "first_name": "mickael",
-        "birth_date": "01-01-1970",
-        "points": 0
+        "birth_date": "29-08-1958",
+        "points": 10.0
     },
     {
         "player_id": 6,
         "last_name": "Zidane",
         "first_name": "Zinedine",
-        "birth_date": "01-01-1968",
-        "points": 0
+        "birth_date": "23-06-1972",
+        "points": 6.5
     },
     {
         "player_id": 7,
         "last_name": "Chirac",
         "first_name": "Jacques",
-        "birth_date": "01-01-1945",
-        "points": 0
+        "birth_date": "29-11-1932",
+        "points": 5.5
     },
     {
         "player_id": 8,
         "last_name": "Serdan",
         "first_name": "Marcel",
-        "birth_date": "01-01-1925",
-        "points": 0
+        "birth_date": "22-07-1916",
+        "points": 6.0
     }
 ]

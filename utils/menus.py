@@ -1,10 +1,12 @@
 """Module calcul des informations du menu"""
 
+
 class MenuEntry:
     """Recupération de la class menuentry dans la classe menu"""
     def __init__(self, option, handler):
         self.option = option
         self.handler = handler
+
 
 class Menu:
     """Menu"""
@@ -14,7 +16,7 @@ class Menu:
         # création du numéro de clé de base dans une variable privé
         self._autokey = 1
 
-    def add (self, key, option, handler):
+    def add(self, key, option, handler):
         """Fonction pour créer les clées"""
         # Si le numero de clé est sur auto boucle pour la création de la clé
         if key == "auto":

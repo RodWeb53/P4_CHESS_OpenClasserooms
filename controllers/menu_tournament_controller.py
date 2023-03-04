@@ -6,12 +6,11 @@ from .tournaments_controller import NewTournamentController
 
 
 class TournamentMenuController:
-    """Menu controller"""
+    """Menu controller pour les tournois"""
 
     def __init__(self):
         self.menu = Menu()
         self.view = TournamentMenuView(self.menu)
-
 
     def __call__(self):
         self.menu.add("auto", "Créer un nouveau tournoi",
@@ -31,7 +30,6 @@ class TournamentMenuController:
         user_choice_tournament = self.view.get_user_choice_tournament()
         # 3. Retourner le controleur associé au choix de l'utilisateur au controleur principal
         return user_choice_tournament.handler
-
 
     def menu_back(self):
         """Méthodes pour aller au menu d'accueil"""

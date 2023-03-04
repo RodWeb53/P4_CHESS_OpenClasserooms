@@ -8,7 +8,7 @@ from controllers import menu_report_controller
 
 
 class ReportController:
-    """Tournoi controller"""
+    """Rapport controller"""
 
     def __init__(self):
         self.tournament = Tournament
@@ -16,7 +16,6 @@ class ReportController:
         self.view = ReportView
         self.tournament_manager = TournamentManager
         self.player_manager = PlayerManager
-
 
     def list_of_global_players(self):
         """Liste global des joueurs de la base de données"""
@@ -29,7 +28,6 @@ class ReportController:
 
         return self.menu_back()
 
-
     def list_of_tounaments(self):
         """Liste des tournois"""
         # Récupération de la liste des tournois
@@ -37,7 +35,6 @@ class ReportController:
         self.view.tournaments_list(self, data_tournaments)
 
         return self.menu_back()
-
 
     def tournament_information(self):
         """Information sur un tournoi"""
@@ -47,7 +44,6 @@ class ReportController:
         self.view.tournament_details(self, choice_tournament)
 
         return self.menu_back()
-
 
     def list_of_tournament_players(self):
         """Liste des joueurs pour un tournoi"""
@@ -59,7 +55,6 @@ class ReportController:
 
         return self.menu_back()
 
-
     def tournament_match_list(self):
         """Liste des tours et matchs d'un tournoi"""
         # Récupération du choix du tournoi
@@ -67,7 +62,6 @@ class ReportController:
         self.view.tournament_match(self, tournament)
 
         return self.menu_back()
-
 
     def ranking_of_a_tournament(self):
         """Classement d'un tournoi"""
@@ -79,21 +73,17 @@ class ReportController:
 
         return self.menu_back()
 
-
     def tournament_commentary(self):
         """Commentaire d'un tournoi"""
         # Récupération du choix du tournoi
         comments = ReportController.choice_tournaments(self)
         self.view.commentary_tournament(self, comments)
-
         return self.menu_back()
-
 
     def menu_back(self):
         """Méthodes pour aller au menu d'accueil"""
         handler = menu_report_controller.ReportMenuController()
         return handler
-
 
     def choice_tournaments(self):
         """Méthodes pour choisir le tournoi en cours et retourner les données"""

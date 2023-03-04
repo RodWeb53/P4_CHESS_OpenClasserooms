@@ -18,7 +18,6 @@ class NewTournamentController:
         self.player_manager = PlayerManager
         self.view = NewTournamentView()
 
-
     def new_tournament(self):
         """Création d'un nouveau tournoi"""
         # Création du tournoi avec la vue
@@ -35,24 +34,27 @@ class NewTournamentController:
 
         return self.menu_back()
 
-
     def choice_tournaments(self):
-        """Méthodes pour choisir le tournoi en cours et retourner les données"""
+        """Méthodes pour choisir le tournoi en cours et retourne les données"""
         # Récupération de la liste des tournois
         data_tournaments = self.tournament_manager.get_all_tournament_in_progress(self)
-        # Récupération du choix utilisateur pour le N° de tournoi
-        choice_tournament = self.view.choice_tournament(data_tournaments)
-        # recupération des données du tournoi suite au choix via l'ID
-        active_tournament = self.tournament_manager.get_tournament(
-            self, choice_tournament)
+        if data_tournaments:
+            # Récupération du choix utilisateur pour le N° de tournoi
+            choice_tournament = self.view.choice_tournament(data_tournaments)
+            # recupération des données du tournoi suite au choix via l'ID
+            active_tournament = self.tournament_manager.get_tournament(
+                self, choice_tournament)
 
-        return active_tournament
+            return active_tournament
 
+        information = "Impossible il n'y a pas de tournoi en cours !"
+        self.view.information(information)
 
     def add_players_tournament(self):
         """Ajout de player dans le tournoi"""
         active_tournament = NewTournamentController.choice_tournaments(self)
-
+        if not active_tournament:
+            return self.menu_back()
         if active_tournament[0].current_round == "":
             # récupération id des joueurs déja saisie dans le tournoi courant
             list_base = []
@@ -96,12 +98,14 @@ class NewTournamentController:
 
         return self.menu_back()
 
-
     def start_gamme_controller(self):
         """Lancement du tournoi et du premier round"""
         # Récupération du choix du tournoi et des données
         active_tournament = NewTournamentController.choice_tournaments(self)
-        #Vérification que le tournoi n'est pas commencé
+        # Vérification qu'il y est un tournoi de créer
+        if not active_tournament:
+            return self.menu_back()
+        # Vérification que le tournoi n'est pas commencé
         if active_tournament[0].current_round == "":
             number_player = 0
             list_player_gamme = []
@@ -119,7 +123,7 @@ class NewTournamentController:
                 active_tournament[0].current_round = 1
                 active_tournament[0].start_round = date_time.strftime(
                     "%d/%m/%Y, %H:%M:%S")
-                #Demande si validation du tournoi
+                # Demande si validation du tournoi
                 question = "Confirmez-vous le lancement d'un tournoi ?"
                 validation = self.view.validation_request(question)
                 if validation:
@@ -143,7 +147,7 @@ class NewTournamentController:
             self.view.information(information)
             return self.menu_back()
 
-        #Demande si on fini un tour
+        # Demande si on fini un tour
         question = "Souhaitez-vous terminer le tour et donner les résultats ?"
         validation = self.view.validation_request(question)
         if validation:
@@ -153,16 +157,18 @@ class NewTournamentController:
 
         return self.menu_back()
 
-
     def start_round_controller(self):
         """Création des round à partir du 2° round"""
         active_tournament = NewTournamentController.choice_tournaments(self)
-        #Si le tournoi n'est pas lancé
+        # Vérification qu'il y est un tournoi de créer
+        if not active_tournament:
+            return self.menu_back()
+        # Si le tournoi n'est pas lancé
         if active_tournament[0].current_round == "":
             information = "Impossible de créer un tour le tournoi n'est pas lancé ! "
             self.view.information(information)
             return self.menu_back()
-        #Si le tour est en cours
+        # Si le tour est en cours
         elif active_tournament[0].start_round:
             information = "Impossible le tour est en cours !"
             self.view.information(information)
@@ -176,7 +182,7 @@ class NewTournamentController:
             # Sauvegarde des données dans la base json
             self.tournament_manager.update_tournament(self, active_tournament)
 
-        #Demande si on fini un tour
+        # Demande si on fini un tour
         question = "Souhaitez-vous terminer le tour et donner les résultats ?"
         validation = self.view.validation_request(question)
         if validation:
@@ -184,10 +190,12 @@ class NewTournamentController:
         else:
             return self.menu_back()
 
-
     def end_round_controller(self):
         """Terminer un tour et affecter les points aux joueurs"""
         active_tournament = NewTournamentController.choice_tournaments(self)
+        # Vérification qu'il y est un tournoi de créer
+        if not active_tournament:
+            return self.menu_back()
         if active_tournament[0].current_round == "":
             information = "Désolé le tournoi n'est pas encore lancé !"
             self.view.information(information)
@@ -244,7 +252,7 @@ class NewTournamentController:
                 active_tournament[0].end_date = end_tournament
                 active_tournament[0].tournament_valid = False
                 self.tournament_manager.update_tournament(self, active_tournament)
-                #Récupération des joueurs de la base
+                # Récupération des joueurs de la base
                 data_players = self.player_manager.get_all_players(self)
                 player_id = 0
                 for player_tournament in active_tournament[0].list_of_players:
@@ -252,12 +260,13 @@ class NewTournamentController:
                         if player_base.player_id == player_tournament["player_id"]:
                             data_players[player_id].points += player_tournament["points"]
                             break
-                    player_id +=1
+                    player_id += 1
                 self.player_manager.update_players(self, data_players)
+                return self.menu_back()
 
             else:
                 self.tournament_manager.update_tournament(self, active_tournament)
-                #Demande si on fini un tour pour démmarer un nouveau tour
+                # Demande si on fini un tour pour démmarer un nouveau tour
                 question = "Souhaitez-vous démarrer un nouveau tour ?"
                 validation = self.view.validation_request(question)
                 if validation:
@@ -265,16 +274,17 @@ class NewTournamentController:
                 else:
                     return self.menu_back()
 
-
     def comment_controller(self):
         """Reste à faire"""
         active_tournament = NewTournamentController.choice_tournaments(self)
+        # Vérification qu'il y est un tournoi de créer
+        if not active_tournament:
+            return self.menu_back()
         comment = self.view.add_comment()
         active_tournament[0].comments += comment
         self.tournament_manager.update_tournament(self, active_tournament)
 
         return self.menu_back()
-
 
     def menu_back(self):
         """Méthodes pour aller au menu d'accueil"""

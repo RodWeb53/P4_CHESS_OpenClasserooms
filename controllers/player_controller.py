@@ -14,7 +14,6 @@ class PlayerController:
         self.view = AddPlayerView()
         self.handler = ""
 
-
     def new_player(self):
         """Ajout d'un joueur"""
         # Menu de création d'un joueur
@@ -31,7 +30,6 @@ class PlayerController:
         # Sinon retour au menu principal
         elif choice_new == -1:
             self.menu_back()
-
 
     def menu_back(self):
         """Méthodes pour aller au menu d'accueil"""

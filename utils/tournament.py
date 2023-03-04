@@ -17,7 +17,6 @@ class UtilsTournament:
             print("Entrez de nouveau un nom de tournoi :")
             tournament_name = input("Votre nouvelle saisie >> ")
         print("")
-
         return tournament_name
 
     def display_menu_place(self):
@@ -30,7 +29,6 @@ class UtilsTournament:
             print("Entrez de nouveau l'emplacement du tournoi :")
             tournament_place = input("Votre nouvelle saisie >> ")
         print("")
-
         return tournament_place
 
     def display_menu_days(self):
@@ -47,7 +45,6 @@ class UtilsTournament:
             print("La date saisie est non valide !")
             UtilsTournament.display_menu_days(self)
             return start_date
-
         return start_date
 
     def display_menu_number_of_rounds(self):
@@ -68,7 +65,6 @@ class UtilsTournament:
             number_of_round = 4
             return number_of_round
 
-
     def display_validation(self, question):
         """Methode pour l'affichage d'une question"""
         verify = True
@@ -84,22 +80,21 @@ class UtilsTournament:
                 verify = False
                 return False
 
-
     def display_match(self, list_of_matchs):
         """Affichage des matchs dans un round"""
-        match = 1
-        espace = ""
-        print(espace.ljust(35, "-") + "\n")
+        number = 0
+        print("".ljust(96, "-"))
+        print("| Match N° ".ljust(10) + "|".ljust(16) + "Joueur 1".ljust(26) +
+              "|".ljust(16) + "Joueur 2".ljust(26) + "|")
+        print("".ljust(96, "-"))
         for item in list_of_matchs:
-            print("Match : " + str(match))
-            print(espace.ljust(10, "-"))
-            print(espace.ljust(8) +
-                  item[0]["last_name"].ljust(15) + item[0]["first_name"])
-            print(espace.ljust(20) + "VS")
-            print(espace.ljust(8) +
-                  item[1]["last_name"].ljust(15) + item[1]["first_name"])
-            print(espace.ljust(35, "-") + "\n")
-            match += 1
+            number += 1
+            print("|  " + str(number).ljust(8) + "| " +
+                  item[0]["last_name"].ljust(20) +
+                  item[0]["first_name"].ljust(20) + "| " +
+                  item[1]["last_name"].ljust(20) +
+                  item[1]["first_name"].ljust(20) + "| ")
+            print("".ljust(96, "-"))
 
     def display_result_match(self, list_of_matchs):
         """Affichage des matchs dans un round"""
@@ -114,7 +109,7 @@ class UtilsTournament:
                   item[0]["last_name"].ljust(15) + item[0]["first_name"])
             print(espace.ljust(20) + "VS")
             print(espace.ljust(8) +
-                  item[1]["last_name"].ljust(15) + item[1]["first_name"])
+                  item[1]["last_name"].ljust(15) + item[1]["first_name"] + "\n")
             print(espace.ljust(35, "-") + "\n")
             print("Qui est le vainqueur du match ? \n")
             print(" 1 - " + item[0]["last_name"].ljust(15) +

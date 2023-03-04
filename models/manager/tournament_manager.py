@@ -13,7 +13,7 @@ class TournamentManager:
     def get_tournament(self, id_tournament):
         """Lecture du fichier JSON des tournois pour récupérer un tournoi suivant son id"""
         with open(os.path.join('data/tournaments',
-                                "tournaments.json"), "r", encoding="UTF-8") as read_file:
+                               "tournaments.json"), "r", encoding="UTF-8") as read_file:
             data = json.load(read_file)
 
         list_tournament = []
@@ -23,7 +23,6 @@ class TournamentManager:
                 list_tournament.append(Tournament(**items))
 
         return list_tournament
-
 
     def save_tournament(self, tournament):
         """Méthodes pour la sauvegarde des tournois"""
@@ -60,10 +59,9 @@ class TournamentManager:
 
         # Sauvegarde de la liste des tournois
         out_file = open(os.path.join('data/tournaments',
-                        "tournaments.json"), "w", encoding="UTF-8")
+                                     "tournaments.json"), "w", encoding="UTF-8")
         json.dump(new_list, out_file, indent=4)
         out_file.close()
-
 
     def update_tournament(self, tournament):
         """Méthodes pour la modification des données d'un tournoi"""
@@ -99,15 +97,14 @@ class TournamentManager:
 
         # Sauvegarde de la liste des tournois
         out_file = open(os.path.join('data/tournaments',
-                        "tournaments.json"), "w", encoding="UTF-8")
+                                     "tournaments.json"), "w", encoding="UTF-8")
         json.dump(list_tournament, out_file, indent=4)
         out_file.close()
-
 
     def get_all_tournament(self):
         """Lecture du fichier JSON des tournois"""
         with open(os.path.join('data/tournaments',
-                                "tournaments.json"), "r", encoding="UTF-8") as read_file:
+                               "tournaments.json"), "r", encoding="UTF-8") as read_file:
             data = json.load(read_file)
         list_tournaments = []
         for i in data:
@@ -115,26 +112,22 @@ class TournamentManager:
 
         return list_tournaments
 
-
     def get_all_tournament_in_progress(self):
         """Lecture du fichier JSON des tournois"""
         with open(os.path.join('data/tournaments',
-                                "tournaments.json"), "r", encoding="UTF-8") as read_file:
+                               "tournaments.json"), "r", encoding="UTF-8") as read_file:
             data = json.load(read_file)
         list_tournaments = []
         for i in data:
-            print("la valeur de tournament valid")
-            print(i["tournament_valid"])
             if i["tournament_valid"]:
                 list_tournaments.append(Tournament(**i))
 
         return list_tournaments
 
-
     def get_all_tournament_json(self):
         """Lecture du fichier JSON des tournois"""
         with open(os.path.join('data/tournaments',
-                                "tournaments.json"), "r", encoding="UTF-8") as read_file:
+                               "tournaments.json"), "r", encoding="UTF-8") as read_file:
             data = json.load(read_file)
 
         return data

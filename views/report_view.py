@@ -21,7 +21,7 @@ class ReportView:
         print("".ljust(54, "-"))
         print(start + "Souhaitez-vous le classement par ordre : ".ljust(50) + start)
         print(start + " 1 - Alphabétique ".ljust(50) + start)
-        print(start + " 2 - Classement ".ljust(50) + start)
+        print(start + " 2 - Par nombre de points ".ljust(50) + start)
         print("".ljust(54, "-") + "\n")
         choice = input("Votre choix >> ")
         entry = True
@@ -35,12 +35,11 @@ class ReportView:
                 print("le choix est 2")
             else:
                 entry = False
-
         return choice
 
     def list_global_players(self, choice, data_players):
         """Vue pour l'affichage des joueurs par ordre"""
-        #Liste par classement alphabétique
+        # Liste par classement alphabétique
         if int(choice) == 1:
             list_players = data_players
             list_players = sorted(
@@ -49,7 +48,7 @@ class ReportView:
             UtilsReport.display_players_list(self)
             for item in list_players:
                 UtilsReport.display_player_list(self, item)
-        #Liste par classement des points
+        # Liste par classement des points
         else:
             list_players = data_players
             list_players = sorted(
@@ -58,11 +57,9 @@ class ReportView:
             UtilsReport.display_players_list(self)
             for item in list_players:
                 UtilsReport.display_player_list(self, item)
-
         print("Pour continuer, appuyer sur 'Entrée'")
         input("")
         return 0
-
 
     def tournaments_list(self, data_tournaments):
         """Vue pour l'affichage des tournois"""
@@ -70,10 +67,8 @@ class ReportView:
         UtilsReport.display_tournaments_list(self)
         for item in data_tournaments:
             UtilsReport.display_tournament_list(self, item)
-
         print("Pour continuer, appuyer sur 'Entrée'")
         input("")
-
 
     def tournament_details(self, choice_tournament):
         """Vue pour l'affichage des détails d'un tournoi"""
@@ -81,7 +76,6 @@ class ReportView:
 
         print("Pour continuer, appuyer sur 'Entrée'")
         input("")
-
 
     def choice_tournament(self, data_tournaments):
         """Vue pour l'affichage des tournois"""
@@ -99,12 +93,11 @@ class ReportView:
                 choice = input("Votre nouveau choix >>  ")
             else:
                 entry = False
-
         return choice
 
     def player_list_tournament(self, choice, data_players):
         """Vue pour l'affichage des joueurs d'un tournoi par ordre"""
-        #Liste par classement alphabétique
+        # Liste par classement alphabétique
         if int(choice) == 1:
             list_players = data_players[0].list_of_players
             list_players = sorted(
@@ -113,7 +106,7 @@ class ReportView:
             UtilsReport.display_players_tournament(self)
             for item in list_players:
                 UtilsReport.display_player_tournament(self, item)
-        #Liste par classement des points
+        # Liste par classement des points
         else:
             list_players = data_players[0].list_of_players
             list_players = sorted(
@@ -125,7 +118,6 @@ class ReportView:
 
         print("Pour continuer, appuyer sur 'Entrée'")
         input("")
-
 
     def commentary_tournament(self, data):
         """Vue pour l'affichage des commentaires d'un tournoi"""
@@ -141,15 +133,14 @@ class ReportView:
         print("Pour continuer, appuyer sur 'Entrée'")
         input("")
 
-
     def tournament_match(self, tournament):
         """Vue pour l'affichage des tours et des matchs pour un tournoi"""
         rounds = tournament[0].list_of_rounds
         clear()
         print("".ljust(100, "-"))
         print("".ljust(10, "#") + "".ljust(5) +
-            "Liste des tours et des matchs pour le tournoi : " +
-             tournament[0].tournament_name.ljust(27) + "".ljust(10, "#"))
+              "Liste des tours et des matchs pour le tournoi : " +
+              tournament[0].tournament_name.ljust(27) + "".ljust(10, "#"))
         print("".ljust(100, "-"))
 
         for item in rounds:
@@ -157,8 +148,8 @@ class ReportView:
             print("|".ljust(40) + item[0]["round"].ljust(40) + "".ljust(19) + "|")
             print("".ljust(100, "-"))
             print("| Match N° ".ljust(10) + "|".ljust(10) + "Joueur 1".ljust(20) +
-                    "|".ljust(10) + "Joueur 2".ljust(20) + "|".ljust(10) +
-                      "Vainqueur".ljust(18) + "|")
+                  "|".ljust(10) + "Joueur 2".ljust(20) + "|".ljust(10) +
+                  "Vainqueur".ljust(18) + "|")
             print("".ljust(100, "-"))
 
             for matchs in item[0]["list_of_match"]:
@@ -171,12 +162,12 @@ class ReportView:
                 else:
                     vainqueur = "Match nul"
 
-                print("|  " + str(number).ljust(8) + "| " +
-                       matchs[0]["last_name"].ljust(14) +
-                         matchs[0]["first_name"].ljust(14) + "| " +
-                         matchs[1]["last_name"].ljust(14) +
-                           matchs[1]["first_name"].ljust(14) + "| ".ljust(10) +
-                           vainqueur.ljust(18) + "|")
+                print("|  " + str(number).ljust(8) +
+                      "| " + matchs[0]["last_name"].ljust(14) +
+                      matchs[0]["first_name"].ljust(14) + "| " +
+                      matchs[1]["last_name"].ljust(14) +
+                      matchs[1]["first_name"].ljust(14) +
+                      "| ".ljust(10) + vainqueur.ljust(18) + "|")
                 print("".ljust(100, "-"))
         print("")
         print("Pour continuer, appuyer sur 'Entrée'")

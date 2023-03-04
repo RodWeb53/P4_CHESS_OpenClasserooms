@@ -12,7 +12,6 @@ class HomeMenuController:
         self.menu = Menu()
         self.view = HomeMenuView(self.menu)
 
-
     def __call__(self):
         # 1. Construire le menu (utils/menus.py)
         self.menu.add("auto", "Menu joueur", PlayerMenuController())
@@ -27,4 +26,3 @@ class HomeMenuController:
     def end_screen_controller(self):
         """Sortie du programme"""
         return
-    
