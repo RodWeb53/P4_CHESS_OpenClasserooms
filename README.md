@@ -6,7 +6,7 @@
 
 * La structure du Programme est en '' Model View Controller ''
 
-## Menu principale
+## Menu principal
 
     ♔  Menu principal du tournoi d'échec ♔
 
