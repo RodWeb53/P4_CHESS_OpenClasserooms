@@ -162,3 +162,14 @@ Si vous voulez vérifier que les packages sont bien installés tapez la commande
 
     python main.py
 
+## Générer un rapport avec flake8-html
+
+Le rapport flake8 créer un rapport montrant que le code ne contient pas d'érreur de peluchage
+
+    Le rapport sera créer à l'aide du fichier setup.cfg
+    le fichier de configuration permet de ne pas prendre en analyse l'environnement virtuel
+    Limite la longueur des lignes à 119
+    Et paramètre le répertoire de sortie
+
+    Taper la commende flake8
+
